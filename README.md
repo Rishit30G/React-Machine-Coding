@@ -10,3 +10,4 @@
 - [x] Custom Progress Bar 
 - [x] Star Rating Component 
 - [x] Custom Stepper Component
+- [x] Polyfill for useState
