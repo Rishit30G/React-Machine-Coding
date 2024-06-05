@@ -1,6 +1,6 @@
 # Machine Coding Interview 🤖👨🏻‍💻
 
-## Problem's Covered 📚
+## Problems Covered 📚
 
 - [x] Modern OTP Component 
 - [x] Dark Theme using Context API 
