@@ -9,9 +9,7 @@ export function Counter() {
         return () => {
             console.log("Clean Up");
         }
-    }, [count]);
-
-    console.log("rendered");
+    },[count]);
 
     const increment = () => {
         setCount(count + 1);

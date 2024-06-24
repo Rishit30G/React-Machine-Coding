@@ -9,18 +9,16 @@ const App = () => {
 
 
 const useState = (initialValue) => {
-
   callIndex++;
 
   const currentCallIndex = Number(callIndex);
-
-  if(stateValues[currentCallIndex] === undefined) {
-    stateValues[currentCallIndex] = initialValue;
+  
+  if(stateValues[currentCallIndex] === undefined){
+     stateValues[currentCallIndex] = initialValue;
   }
   const setValue = (newValue) => {
-    stateValues[currentCallIndex] = newValue
+    stateValues[currentCallIndex] = newValue;
     render();
-    console.log("new Value: ", newValue);
   }
 
   return [stateValues[currentCallIndex], setValue]

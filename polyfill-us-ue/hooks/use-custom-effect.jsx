@@ -29,7 +29,6 @@ const useCoustomEffect = (effect, deps) => {
      }
    
     // Clean Up
-
     prevDeps.current = deps || [];
 }
 
