@@ -18,7 +18,7 @@ let car1 = {
     company: "Ferrari",
 }
 
-const purchaseCar = (currency, crypto) => {
+function purchaseCar(currency, crypto) {
     console.log(`I want to purchase ${this.color} ${this.company} car for ${currency} / ${crypto} `);
 }
 
