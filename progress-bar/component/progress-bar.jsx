@@ -1,17 +1,8 @@
 import { useState, useEffect } from "react";
 
-const ProgressBar = ({ value, onComplete = ()=>{} }: { value: number, 
-    onComplete: () => void
-}) => {
+const ProgressBar = ({ value }) => {
 
-    const [percent, setPercent] = useState(value); 
-
-    useEffect(() => {
-        setPercent(Math.min(100, Math.max(value, 0)));
-        if( percent === 100) {
-            onComplete();
-        }
-    }, [value]);
+   const percent = value;
   return (
     <div className="progress">
       <span className={percent <= 50 ? "" : "progess progress-white"}>{percent.toFixed()}%

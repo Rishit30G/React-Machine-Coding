@@ -8,19 +8,23 @@ function App() {
   const [success, setSuccess] = useState(false);
 
   useEffect(() => {
-    setInterval(()=>{
-      setValue((val) => val+1);
+    const timeoutId = setTimeout(() => {
+      if (value < 100) {
+        setValue(value + 1);
+      } else {
+        clearTimeout(timeoutId);
+        setSuccess(true);
+      }
     }, 100);
-  }, []);
 
-  const handleComplete = () => {
-    setSuccess(true);
-  }
+    return () => clearTimeout(timeoutId); 
+    
+  }, [value]);
   
   return (
     <div className="App">
       <span >Progress Bar</span>
-      <ProgressBar value={value}  onComplete={handleComplete}/>
+      <ProgressBar value={value} />
       <span>{success ? "Complete" : "Loading..."}</span>
     </div>
   )

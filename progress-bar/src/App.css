@@ -31,7 +31,6 @@ body{
 
 .progress div{
     height: 100%;
-    width: 20%;
     background-color: #00c251;
     /* border-radius: 20px; */
 }
