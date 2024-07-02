@@ -11,3 +11,8 @@
 - [x] Star Rating Component 
 - [x] Custom Stepper Component
 - [x] Polyfill for useState
+- [x] Slider Component 
+- [x] JavaScript Polyfills 
+- [x] React Redux 
+- [x] Simple Quiz App 
+- [x] Tic Tac Toe Game
