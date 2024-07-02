@@ -1,0 +1,21 @@
+.app{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;  
+}
+
+.image{
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+  margin: 0 30px;
+}
+
+.slide-active{
+  display: block;
+}
+
+.slide{
+  display: none;
+}
