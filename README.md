@@ -16,6 +16,7 @@
 - [x] React Redux 
 - [x] Simple Quiz App 
 - [x] Tic Tac Toe Game
+- [x] Complex Todo App
 
 --- 
 
