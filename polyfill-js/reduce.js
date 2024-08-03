@@ -14,7 +14,7 @@ console.log(typeof newArr);
 
 Array.prototype.myReduce= function(callbackFn, initialValue) {
     var accumulator = initialValue;
-  for (var i = 0; i < this.length; i++) {
+    for (var i = 0; i < this.length; i++) {
       if (accumulator !== undefined) {
         accumulator = callbackFn(accumulator, this[i],   i, this);
       } else {

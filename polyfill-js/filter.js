@@ -11,7 +11,6 @@ arr = [12,3,4,5];
 
 Array.prototype.myFilter = function(callback){
     var result = [];
-
     for(let i = 0; i<this.length; i++){
         if(callback(this[i], i, this)){
             result.push(this[i]);
@@ -20,6 +19,6 @@ Array.prototype.myFilter = function(callback){
 }
 
 var newArr = arr.myFilter((item, index, arr) => {
-    console.log(item, index, arr);
+    // console.log(item, index, arr);
     return item%2 === 0;
 });
