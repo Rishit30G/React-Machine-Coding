@@ -19,6 +19,8 @@
 - [x] Complex Todo App
 - [x] Calendar Component
 - [x] Tabs Component
+- [x] Nested File/Folder Component
+
 --- 
 
 Special thanks to Roadside Coder for the amazing [Machine Coding Interview](https://www.youtube.com/playlist?list=PLKhlp2qtUcSYQojD5G-ElgHezoCyq2Hgo) series on YouTube.
