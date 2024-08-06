@@ -18,7 +18,7 @@
 - [x] Tic Tac Toe Game
 - [x] Complex Todo App
 - [x] Calendar Component
-
+- [x] Tabs Component
 --- 
 
 Special thanks to Roadside Coder for the amazing [Machine Coding Interview](https://www.youtube.com/playlist?list=PLKhlp2qtUcSYQojD5G-ElgHezoCyq2Hgo) series on YouTube.
