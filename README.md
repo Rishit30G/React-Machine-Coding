@@ -20,6 +20,7 @@
 - [x] Calendar Component
 - [x] Tabs Component
 - [x] Nested File/Folder Component
+- [x] Nested Chat Component 
 
 --- 
 
