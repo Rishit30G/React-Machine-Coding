@@ -1,22 +1,23 @@
 import React from 'react'
 
-const Pagination = ({postsPerPage, totalPosts, paginate}) => {
+const Pagination = ({totalPosts, postsPerPage, setPage, page}) => {
 
-    const pageNumbers = [];
-
-    for(let i = 1; i<= Math.ceil(totalPosts/ postsPerPage); i++){
-        pageNumbers.push(i);
-  }
+    const result = [];
+    for(let i = 1; i<= Math.ceil(totalPosts/postsPerPage); i++){
+        result.push(i);
+    }
   return (
-    <div>
-        {pageNumbers.map(number => (
-            <span key={number} style={{marginRight: '8px'}}>
-                <a onClick={() => paginate(number)}href="!#">
-                    {number}
-                </a>
-            </span>
-        ))}
-    </div>
+    <p>
+        <button onClick={() => setPage(prev => prev > 1 ? prev - 1 : prev)}>Previous</button>
+                {result.map(number => (
+                    <span key={number} style={{margin: '8px'}}>
+                        <button onClick={() => setPage(number)} style={number === page ? {backgroundColor: '#333', color: 'white'} : {}}>
+                            {number}
+                        </button>
+                    </span>
+                ))}
+        <button onClick={() => setPage(prev => prev < Math.ceil(totalPosts/postsPerPage) ? prev + 1 : prev)}>Next</button>
+    </p>
   )
 }
 
