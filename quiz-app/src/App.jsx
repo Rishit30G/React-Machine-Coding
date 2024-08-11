@@ -8,7 +8,6 @@ function App() {
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [userAnswers, setUserAnswers] = useState([]);
-  const [correctAnswer, setCurrentAnswer] = useState([]);
   // Keep all of the logic in App.jsx
 
   const handleNextQuestion = (isCorrect) => {

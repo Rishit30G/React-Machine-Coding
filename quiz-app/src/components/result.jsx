@@ -18,7 +18,7 @@ const correctAnswers = userAnswers.filter((answer) => answer === true).length;
                     <li>
                         {!userAnswers[index] && (
                             <span style={{ color: "green" }}>
-                            Correct Answer :{" "}
+                            Correct Answer :
                             {question.answerOptions.map(
                                 (el) => el.isCorrect == true && el.text
                             )}
