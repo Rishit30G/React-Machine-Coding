@@ -3,17 +3,25 @@ import { useState } from "react";
 
 const MemoryGame = () => {
   const [gridSize, setGridSize] = useState(4);
+  const [moveSize, setMoveSize] = useState(0);
   const [cards, setCards] = useState([]);
+  const [currentMoves, setCurrentMoves]= useState(0);
 
   const [flipped, setFlipped] = useState([]);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
   const [won, setWon] = useState(false);
   const [showAllCards, setShowAllCards] = useState(true);
+  const [loss, setLoss] = useState(false);
 
   const handleGridSizeChange = (e) => {
     const size = parseInt(e.target.value);
     if (size >= 2 && size <= 10) setGridSize(size);
+  };
+
+  const handleMoveChange = (e) => {
+    const size = parseInt(e.target.value);
+    if (size >= 0 && size <= 10) setMoveSize(size);
   };
 
   
@@ -32,19 +40,20 @@ const MemoryGame = () => {
     const numbers = Array.from({ length: pairCount }, (_, index) => index + 1); // [1, 2, 3, 4, 5, 6, 7, 8]
     const shuffledCards = [...numbers, ...numbers]
       .sort(() => Math.random() - 0.5)
-      .slice(0, totalCards)
       .map((number, index) => ({ id: index, number }));
     setCards(shuffledCards);
+    setTimeout(() => setShowAllCards(false), gridSize * 1000);
     setFlipped([]);
     setSolved([]);
     setWon(false);
+    setCurrentMoves(0); 
     setShowAllCards(true);
-    setTimeout(() => setShowAllCards(false), gridSize * 1000);
+    setLoss(false);
   };
 
   useEffect(() => {
     intializeGame();
-  }, [gridSize]);
+  }, [gridSize, moveSize]);
 
   const checkMatch = (secondId) => {
     const [firstId] = flipped; 
@@ -52,16 +61,25 @@ const MemoryGame = () => {
         setSolved([...solved, firstId, secondId]);
         setFlipped([]);
         setDisabled(false);
-    }else{
-        setTimeout(()=>{
-            setFlipped([]);
-            setDisabled(false);
+    }else {
+        // Mismatch: increment currentMoves and check move limit
+        setCurrentMoves((prevMoves) => {
+          const newMoves = prevMoves + 1;
+          if (moveSize > 0 && newMoves >= moveSize) {
+            setLoss(true); // Trigger loss state if moves exceed limit
+          }
+          return newMoves;
+        });
+  
+        setTimeout(() => {
+          setFlipped([]);
+          setDisabled(false);
         }, 1000);
-    }
+      }
   }
 
   const handleClick = (id) => {
-    if (disabled || won || showAllCards) return;
+    if (disabled || won || loss ||showAllCards) return;
 
     if (flipped.length === 0) {
       setFlipped([id]);
@@ -89,21 +107,35 @@ const MemoryGame = () => {
       <h1 className="text-3xl font-bold mb-6">Memory Game</h1>
 
       {/* Input  */}
-      <div className="mb-4">
-        <label htmlFor="gridSize" className="mr-2">
-          Grid Size: (max 10)
-        </label>
-        <input
-          type="number"
-          id="gridSize"
-          min="2"
-          max="10"
-          value={gridSize}
-          onChange={handleGridSizeChange}
-          className="border-2 border-gray-300 rounded px-2 py-1"
-        ></input>
-      </div>
+      <div className="flex justify-center items-center gap-4 mb-4">
+        <div>
+            <label htmlFor="gridSize" className="mr-2">
+            Grid Size: (max 10)
+            </label>
+            <input
+            type="number"
+            id="gridSize"
+            min="2"
+            max="10"
+            value={gridSize}
+            onChange={handleGridSizeChange}
+            className="border-2 border-gray-300 rounded px-2 py-1"
+            ></input>
+        </div>
+        <div>
+            <label htmlFor="moveSize" className="mr-2">
+                Maximum Moves ( 0 for unlimited )
+            </label>
+            <input type="number" id="moveSize" min="0" max="100" value={moveSize} onChange={handleMoveChange} className="border-2 border-gray-300 rounded px-2 py-1"></input>
+        </div>
+        </div>
 
+      {/* Move Size */}
+      <div className="mb-4">
+        <h3>Moves: 
+           <span className="text-xl font-medium"> {currentMoves}</span>
+        </h3>
+      </div>
       {/* Game Board */}
       <div
         className={`grid gap-2 mb-4`}
@@ -138,12 +170,13 @@ const MemoryGame = () => {
 
       {/* Result */}
       {won && <div className="mt-4 text-4xl font-bold text-green-600 animate-bounce">You Won!</div>}
+      {loss && <div className="mt-4 text-4xl font-bold text-red-600 animate-bounce">Game Over!</div>}
       {/* Button */}
         <button
             onClick={intializeGame}
             className="mt-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
         >
-            {won ? "Play Again" : "Reset"}
+            {won || loss ? "Play Again" : "Reset"}
         </button>
     </div>
   );
