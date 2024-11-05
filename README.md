@@ -22,6 +22,8 @@
 - [x] Nested File/Folder Component
 - [x] Nested Chat Component 
 - [x] Memory Game
+- [x] Accordian Component
+- [x] Multi Select Search
 
 --- 
 
