@@ -10,13 +10,13 @@ function App() {
   const handleSetToday = () => setCurrentDate(new Date());
   
   return (
-    <h1 className="mt-16 flex flex-col items-center">
+    <div className="mt-16 flex flex-col items-center">
       <div className='mb-6 flex items-center flex-col gap-4'>
         <p>Selected Date: {format(currentDate, 'dd LLLL yyyy')}</p>
         <button onClick={handleSetToday} className='bg-blue-600 hover:bg-blue-700 active:bg-blue-800 px-4 py-1 rounded text-white'>Today</button>
       </div>
         <Calendar value={currentDate} onChange={setCurrentDate}/>
-    </h1>
+    </div>
   )
 }
 
