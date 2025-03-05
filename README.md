@@ -24,6 +24,7 @@
 - [x] Memory Game
 - [x] Accordian Component
 - [x] Multi Select Search
+- [x] Carousel with Input
 
 --- 
 
