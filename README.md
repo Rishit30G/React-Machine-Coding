@@ -25,6 +25,7 @@
 - [x] Accordian Component
 - [x] Multi Select Search
 - [x] Carousel with Input
+- [x] Debounce and Throttle
 
 --- 
 
