@@ -26,6 +26,7 @@
 - [x] Multi Select Search
 - [x] Carousel with Input
 - [x] Debounce and Throttle
+- [x] Traffic Light
 
 --- 
 
