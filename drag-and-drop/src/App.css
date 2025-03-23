@@ -1,0 +1,25 @@
+body{
+  font-family: sans-serif; 
+}
+
+.text-container{
+  display: flex; 
+  justify-content: center;
+}
+.textfield{
+  display: flex; 
+  gap: 10px; 
+  input{
+    width: 300px;
+    border-radius: 5px;
+    height: 30px;
+  }
+  button{
+    border-radius: 5px;
+    padding: 5px; 
+    width: 100px; 
+    cursor: pointer;
+    background-color: antiquewhite;
+    border: 1px solid black;
+  }
+}
