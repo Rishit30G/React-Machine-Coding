@@ -29,6 +29,7 @@
 - [x] Traffic Light
 - [x] Drag and Drop
 - [x] Typeahead Component
+- [x] Multistep Form
 --- 
 
 Special thanks to Roadside Coder for the amazing [Machine Coding Interview](https://www.youtube.com/playlist?list=PLKhlp2qtUcSYQojD5G-ElgHezoCyq2Hgo) series on YouTube.
